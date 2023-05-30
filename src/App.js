@@ -8,7 +8,8 @@ function App() {
 
 return (
    <>
-    <Banner /><Cart /><DisplayPlantList />  
+    <Banner />
+    <DisplayPlantList />  
    </>
    
 
