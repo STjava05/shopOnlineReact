@@ -1,5 +1,7 @@
-import "./style/banner.css";
-import image1 from "./assets/leaf+1.png";
+import "../style/banner.css";
+import image1 from "../assets/leaf+1.png";
+
+
 function Banner() {
     const title = "La maison jungle"
     return (
