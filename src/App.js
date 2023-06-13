@@ -3,6 +3,8 @@ import './style/App.css';
 import ShoppingList from './component/plantList';
 import Footer from './component/footer';
 import Cart from './component/cart';
+import QuestionFrom from './questionFrom';
+
 import { useState } from 'react';
 
 
@@ -18,6 +20,7 @@ function App() {
 				<ShoppingList cart={cart} updateCart={updateCart} />
 			</div>
 			<Footer />
+			<QuestionFrom />
 		</div>
 	)
 }
