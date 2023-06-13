@@ -4,7 +4,7 @@ import ShoppingList from './component/plantList';
 import Footer from './component/footer';
 import Cart from './component/cart';
 import { useState, useEffect } from 'react';
-import QuestionFrom from './component/questionFrom';
+import QuestionFrom from './questionFrom';
 
 
 

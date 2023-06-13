@@ -30,7 +30,7 @@ function Cart({ cart, updateCart }) {
                         {cart.map(({ name, price, amount }, index) => (
                             <div key={`${name}-${index}`}>
                                 {name} {price}€ x {amount}
-                                <button onClick={()=> delate(event.target)}> </button>
+                                
                             </div>
                         ))}
                     </ul>
