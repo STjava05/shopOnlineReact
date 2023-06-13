@@ -1,4 +1,4 @@
-import { useState,useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import '../style/cart.css'
 
 
@@ -8,13 +8,31 @@ function Cart({ cart, updateCart }) {
 
 
     const total = cart.reduce(
-        (acc, plantType) => acc + plantType.amount * plantType.price,0
+        (acc, plantType) => acc + plantType.amount * plantType.price, 0
     )
 
-     useEffect(()=>{
+    useEffect(() => {
         document.title = total;
-    }
-    ,[total])
+    },[total])
+
+    //*Delate function
+    const deleteItem = (name) => {
+        const updatedCarte = cart.map((item) => {
+            if (item.name === name) {
+                if (item.amount >= 1) {
+                    return { ...item, amount: item.amount - 1 };
+                }
+            }
+            return item;
+        });
+        updateCart(updatedCarte);
+        const filteredCart = updatedCarte.filter((item) => item.amount !== 0);
+        updateCart(filteredCart);
+
+    };
+
+
+
     return isOpen ? (
         <div className='jh-cart'>
             <button
@@ -30,17 +48,17 @@ function Cart({ cart, updateCart }) {
                         {cart.map(({ name, price, amount }, index) => (
                             <div key={`${name}-${index}`}>
                                 {name} {price}€ x {amount}
-                                
+                                <button className='btnCreated' onClick={() => deleteItem(name)}>x</button>
                             </div>
                         ))}
                     </ul>
                     <h3>Total :{total}€</h3>
                     <button onClick={() => {
                         updateCart([]);
-                        
+
                     }
-                        
-                    
+
+
                     }>Empty the cart</button>
                 </div>
             ) : (
