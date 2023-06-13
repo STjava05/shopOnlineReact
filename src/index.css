@@ -11,3 +11,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+
+
+.btnCreated{
+  cursor: pointer;
+  background-color: red;
+  padding: 5px;
+  color: white;
+  border-radius: 5px;
+  margin-left: 5px;
+}
