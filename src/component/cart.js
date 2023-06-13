@@ -1,13 +1,20 @@
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 import '../style/cart.css'
 
 
 
 function Cart({ cart, updateCart }) {
-    const [isOpen, setIsOpen] = useState(true)
+    const [isOpen, setIsOpen] = useState(true);
+
+
     const total = cart.reduce(
         (acc, plantType) => acc + plantType.amount * plantType.price,0
     )
+
+     useEffect(()=>{
+        document.title = total;
+    }
+    ,[total])
     return isOpen ? (
         <div className='jh-cart'>
             <button
@@ -23,11 +30,18 @@ function Cart({ cart, updateCart }) {
                         {cart.map(({ name, price, amount }, index) => (
                             <div key={`${name}-${index}`}>
                                 {name} {price}€ x {amount}
+                                <button onClick={()=> delate(event.target)}> </button>
                             </div>
                         ))}
                     </ul>
                     <h3>Total :{total}€</h3>
-                    <button onClick={() => updateCart([])}>Empty the cart</button>
+                    <button onClick={() => {
+                        updateCart([]);
+                        
+                    }
+                        
+                    
+                    }>Empty the cart</button>
                 </div>
             ) : (
                 <div>Your cart is empty</div>

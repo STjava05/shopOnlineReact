@@ -3,14 +3,18 @@ import './style/App.css';
 import ShoppingList from './component/plantList';
 import Footer from './component/footer';
 import Cart from './component/cart';
-import QuestionFrom from './questionFrom';
-
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 
 
 function App() {
-	const [cart, updateCart] = useState([])
+	const savecart = localStorage.getItem('cartlocal')
+	const [cart, updateCart] = useState(savecart ? JSON.parse(savecart) : []);
+
+	//Viene eseguito ogni volta che cambi il valore di stato di cart dichiarato come secondo parametro
+	useEffect(()=>{
+		localStorage.setItem('cartlocal', JSON.stringify(cart));
+	},[cart]);
 
 	return (
 		<div>
