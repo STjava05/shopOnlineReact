@@ -4,7 +4,8 @@ import './style/cart.css'
 
 
 class QuestionFrom extends Component {
-    return () {
+    render() {
+    return (
         <div className="questionFrom">
             <h1>Question From</h1>
             <form>
@@ -23,9 +24,10 @@ class QuestionFrom extends Component {
                 <input type="submit" value="Submit" />
             </form>
         </div>
+    )
     }
-        
+}    
     
 
-}
+
 export default QuestionFrom;
